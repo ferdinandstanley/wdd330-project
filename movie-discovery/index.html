@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Discover popular, trending, and searchable movies with trailers and detailed information.">
+  <meta name="theme-color" content="#0f1117">
+  <title>Movie Discover | Find Your Next Movie</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://image.tmdb.org">
+  <!-- <link rel="stylesheet" href="css/styles.css"> -->
+</head>
+
+<body data-page="home">
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Movie Discover home">
+      <span class="brand-mark" aria-hidden="true">▶</span>
+      <span>MOVIE DISCOVER</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Open navigation</span>
+    </button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="movies.html">Popular</a>
+      <a href="movies.html?genre=all">Genre</a>
+      <a href="favorites.html">Favorites</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-content">
+        <!-- <p class="eyebrow">MOVIE DISCOVERY</p> -->
+        <h1 id="hero-title">Discover Your Next Movie</h1>
+        <p>Search thousands of movies, explore what's trending, and find something worth watching.</p>
+        <form id="home-search-form" class="search-form">
+          <label class="sr-only" for="home-search">Search for a movie</label>
+          <input id="home-search" name="query" type="search" placeholder="Search for a movie here..." autocomplete="off"
+            required>
+          <button class="button primary" type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trending-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="trending-heading">Trending Now</h2>
+          <a class="text-link" href="movies.html?mode=trending">View All</a>
+        </div>
+        <div id="trending-grid" class="movie-grid movie-grid--featured">
+          <div class="loading" aria-live="polite">Loading trending movies...</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="popular-heading">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="popular-heading">Popular Movies</h2>
+          <a class="text-link" href="movies.html">View All</a>
+        </div>
+        <div id="popular-grid" class="movie-grid">
+          <div class="loading" aria-live="polite">Loading popular movies...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><strong>MOVIE DISCOVER</strong>
+        <p>Find your next favorite movie.</p>
+      </div>
+      <div><a href="about.html">About Us</a><a href="favorites.html">Favorites</a></div>
+      <div><a href="movies.html">Browse Movies</a><a href="mailto:hello@example.com">Contact Us</a></div>
+    </div>
+    <p class="copyright">© <span data-year></span> Movie Discover. All Rights Reserved.</p>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

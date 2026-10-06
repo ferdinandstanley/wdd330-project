@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your saved favorite movies.">
+  <title>Favorites | Movie Discover</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="favorites">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">▶</span><span>MOVIE DISCOVER</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><span class="sr-only">Open navigation</span></button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="movies.html">Popular</a><a href="movies.html?genre=all">Genre</a><a class="active" href="favorites.html">Favorites</a><a href="about.html">About</a>
+    </nav>
+  </header>
+  <main class="container page-main">
+    <section class="page-intro">
+      <p class="eyebrow">YOUR LIST</p>
+      <h1>Favorite Movies</h1>
+      <p>Movies you save here stay in your browser using localStorage.</p>
+    </section>
+    <div id="favorites-grid" class="movie-grid movie-grid--browse"></div>
+  </main>
+  <footer class="site-footer"><p class="copyright">© <span data-year></span> Movie Discover.</p></footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

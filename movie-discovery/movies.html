@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse and search movies by title, genre, popularity, rating, or release date.">
+  <title>Browse Movies | Movie Discover</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="movies">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">▶</span><span>MOVIE DISCOVER</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><span class="sr-only">Open navigation</span></button>
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a class="active" href="movies.html">Popular</a><a href="movies.html?genre=all">Genre</a><a href="favorites.html">Favorites</a><a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container page-main">
+    <section class="page-intro">
+      <p class="eyebrow">BROWSE</p>
+      <h1 id="browse-title">Explore Movies</h1>
+      <p>Search, filter, and sort the movie collection.</p>
+      <form id="browse-search-form" class="search-form search-form--compact">
+        <label class="sr-only" for="browse-search">Search movies</label>
+        <input id="browse-search" name="query" type="search" placeholder="Search by movie title..." autocomplete="off">
+        <button class="button primary" type="submit">Search</button>
+      </form>
+    </section>
+
+    <section class="controls" aria-label="Movie filters">
+      <div class="control">
+        <label for="genre-select">Genre</label>
+        <select id="genre-select"><option value="all">All Genres</option></select>
+      </div>
+      <div class="control">
+        <label for="sort-select">Sort By</label>
+        <select id="sort-select">
+          <option value="popularity.desc">Popularity</option>
+          <option value="title.asc">Name A–Z</option>
+          <option value="vote_average.desc">Rating</option>
+          <option value="primary_release_date.desc">Newest</option>
+        </select>
+      </div>
+    </section>
+
+    <div id="browse-status" class="status" aria-live="polite"></div>
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading" class="sr-only">Movie results</h2>
+      <div id="movies-grid" class="movie-grid movie-grid--browse"></div>
+    </section>
+    <div id="pagination" class="pagination" aria-label="Movie pages"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p class="copyright">© <span data-year></span> Movie Discover. Movie data provided by TMDB.</p>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

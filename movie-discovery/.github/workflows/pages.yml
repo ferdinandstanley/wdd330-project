@@ -1,0 +1,52 @@
+name: Deploy Movie Discover to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create client config from repository secrets
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          cat > js/config.js <<EOF
+          export const TMDB_API_KEY = "${TMDB_API_KEY}";
+          export const YOUTUBE_API_KEY = "${YOUTUBE_API_KEY}";
+
+          export const TMDB_BASE_URL = "https://api.themoviedb.org/3";
+          export const TMDB_IMAGE_URL = "https://image.tmdb.org/t/p/";
+          export const YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3";
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
